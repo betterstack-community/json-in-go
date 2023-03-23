@@ -1,12 +1,20 @@
-package examples
+package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
-	"os"
 )
 
-func StructToFileIndented() {
+type Person struct {
+	Name    string
+	Email   string
+	Phone   string
+	Hobbies []string
+	Age     int
+}
+
+func main() {
 	p := Person{
 		Name:  "John Jones",
 		Age:   26,
@@ -17,13 +25,11 @@ func StructToFileIndented() {
 			"Badminton",
 		},
 	}
-	b, err := json.MarshalIndent(p, "", "  ")
+
+	b, err := json.Marshal(p)
 	if err != nil {
 		log.Fatalf("Unable to marshal due to %s\n", err)
 	}
 
-	err = os.WriteFile("assets/person_indented.json", b, 0666)
-	if err != nil {
-		log.Fatalf("Unable to save to file due to %s\n", err)
-	}
+	fmt.Println(string(b))
 }

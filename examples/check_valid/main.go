@@ -1,11 +1,11 @@
-package examples
+package main
 
 import (
 	"encoding/json"
 	"fmt"
 )
 
-func CheckValid() {
+func main() {
 	good := `{"name": "John Doe"}`
 	bad := `{name: "John Doe"}`
 

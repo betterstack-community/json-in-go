@@ -1,25 +1,26 @@
-package examples
+package main
 
 import (
 	"encoding/json"
-	"github.com/sanity-io/litter"
 	"log"
 	"os"
+
+	"github.com/sanity-io/litter"
 )
 
 type (
 	FullPerson struct {
-		Name    string
-		Age     int
 		Address Address
+		Name    string
 		Pets    []Pet
+		Age     int
 	}
 
 	Pet struct {
 		Name  string
 		Kind  string
-		Age   int
 		Color string
+		Age   int
 	}
 
 	Address struct {
@@ -29,16 +30,18 @@ type (
 	}
 )
 
-func ComplexJson() {
+func main() {
 	b, err := os.ReadFile("assets/complex.json")
 	if err != nil {
 		log.Fatalf("Unable to read file due to %s\n", err)
 	}
 
 	var person FullPerson
+
 	err = json.Unmarshal(b, &person)
 	if err != nil {
 		log.Fatalf("Unable to marshal JSON due to %s", err)
 	}
+
 	litter.Dump(person)
 }

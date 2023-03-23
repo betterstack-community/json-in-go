@@ -1,9 +1,10 @@
-package examples
+package main
 
 import (
 	"encoding/json"
-	"github.com/sanity-io/litter"
 	"log"
+
+	"github.com/sanity-io/litter"
 )
 
 type (
@@ -14,12 +15,15 @@ type (
 	}
 )
 
-func TypeAlias() {
+func main() {
 	input := `{"Example": "Hello world"}`
+
 	var tas TypeAliasStruct
+
 	err := json.Unmarshal([]byte(input), &tas)
 	if err != nil {
 		log.Fatalf("Unable to marshal JSON due to %s", err)
 	}
+
 	litter.Dump(tas)
 }

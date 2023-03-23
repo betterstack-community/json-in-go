@@ -1,4 +1,4 @@
-module woojiahao.com/json
+module github.com/betterstack-community/json
 
 go 1.20
 
@@ -8,6 +8,7 @@ require (
 )
 
 require (
+	github.com/araddon/dateparse v0.0.0-20210429162001-6b43995a97de // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
